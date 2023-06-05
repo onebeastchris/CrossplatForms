@@ -5,11 +5,13 @@ rootProject.name = "CrossplatForms"
 pluginManagement {
     repositories {
         gradlePluginPortal()
+        maven("https://maven.fabricmc.net/") // loom
     }
     plugins {
         id("net.kyori.indra.git") version "3.0.1" // getting branch and commit info at compile time
         id("net.kyori.indra") version "3.0.1" // multi-release jar for referencing Java 16 geyser api
         id("com.github.johnrengelman.shadow") version "7.1.2" // shadowing dependencies
+        id("fabric-loom") version "1.2-SNAPSHOT" apply false// fabric
     }
 }
 
@@ -28,6 +30,8 @@ dependencyResolutionManagement {
 
         maven("https://mvn.exceptionflug.de/repository/exceptionflug-public/") // protocolize for proxies
         maven("https://repo.papermc.io/repository/maven-public/") // velocity
+
+        maven("https://maven.fabricmc.net/") // fabric
     }
 }
 
@@ -57,3 +61,5 @@ findProject(":spigot-common:v1_13_R2")?.name = "v1_13_R2"
 
 include(":spigot-common:v1_14_R1")
 findProject(":spigot-common:v1_14_R1")?.name = "v1_14_R1"
+
+include(":fabric")
