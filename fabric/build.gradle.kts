@@ -2,11 +2,20 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
     id("com.github.johnrengelman.shadow")
-    apply { id("fabric-loom") }
+    id ("fabric-loom") version "1.2-SNAPSHOT" apply true
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 dependencies {
     // fabric dependencies
+    val minecraftVersion = "1.19.4"
+    val loaderVersion = "0.14.21"
+    val fabricVersion = "0.83.0+1.19.4"
+
     minecraft("com.mojang", "minecraft", minecraftVersion)
     mappings(loom.officialMojangMappings())
 

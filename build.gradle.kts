@@ -7,7 +7,7 @@ plugins {
     id("idea") // used to download sources and documentation
 }
 
-allprojects{
+allprojects {
     apply(plugin = "java")
     apply(plugin = "java-library")
     apply(plugin = "net.kyori.indra.git")
@@ -53,6 +53,23 @@ allprojects{
 
     // disable javadocs
     tasks.withType<Javadoc>().all { enabled = false }
+
+    repositories {
+        mavenCentral()
+        maven("https://repo.opencollab.dev/main/") // geyser etc
+        maven("https://jitpack.io") // fixes issue with Cloudburst Protocol that geyser depends on
+        maven("https://libraries.minecraft.net/") // brigadier
+
+        maven("https://oss.sonatype.org/content/repositories/snapshots") // bungeecord, spigot
+        maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/") // spigot
+        maven("https://repo.extendedclip.com/content/repositories/placeholderapi/") // PlaceholderAPI
+        maven("https://repo.codemc.io//repository/maven-public/") // NBT api
+
+        maven("https://mvn.exceptionflug.de/repository/exceptionflug-public/") // protocolize for proxies
+        maven("https://repo.papermc.io/repository/maven-public/") // velocity
+
+        maven("https://maven.fabricmc.net/") // fabric
+    }
 }
 
 subprojects {
