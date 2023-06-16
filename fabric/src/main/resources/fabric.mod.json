@@ -10,7 +10,7 @@
   "environment": "server",
   "entrypoints": {
     "main": [
-      "dev.kejona.crossplatforms.Crossplatforms"
+      "dev.kejona.crossplatforms.CrossplatformsFabric"
     ]
   },
   "mixins": [
